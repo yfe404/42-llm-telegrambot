@@ -81,6 +81,10 @@ The services will be built and started. The Telegram bot will be able to access 
 
 ---
 
+## Acknowledgements
+
+Thanks to hivehelsinki/42api-lib for providing the foundation for the 42 API integration.
+
 ## License and Disclaimer
 
 This project is intended for educational and experimental purposes. Please ensure that you are compliant with 42 Intra's API usage guidelines and handle all credentials securely.
