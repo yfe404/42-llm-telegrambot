@@ -40,8 +40,6 @@ OPENAI_API_KEY=sk-your-openai-key
 FLASK_ENV=production
 CLIENT_ID=your-42-client-id
 CLIENT_SECRET=your-42-client-secret
-
-# Optional overrides
 TOK_URL=https://api.intra.42.fr/v2/oauth/token
 API_URL=https://api.intra.42.fr/v2
 SCOPES=public
