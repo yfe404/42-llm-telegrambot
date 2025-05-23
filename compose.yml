@@ -6,7 +6,7 @@ services:
     container_name: telegram_bot
     environment:
       - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
-      - OPENAI_API_KEY=${BOT_MODE}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     depends_on:
       - api-wrapper
     restart: unless-stopped
@@ -16,8 +16,11 @@ services:
     container_name: api_wrapper
     environment:
       - FLASK_ENV=${FLASK_ENV}
-      - 42_APP_UID=${42_APP_UID}
-      - 42_APP_SECRET=${42_APP_SECRET}
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - TOK_URL=${TOK_URL:-https://api.intra.42.fr/v2/oauth/token}
+      - API_URL=${API_URL:-https://api.intra.42.fr/v2}
+      - SCOPES=${SCOPES:-public}
     ports:
       - "5000:5000"
     restart: unless-stopped
