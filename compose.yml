@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  telegram-bot:
+    build: ./telegram-bot
+    container_name: telegram_bot
+    environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - OPENAI_API_KEY=${BOT_MODE}
+    depends_on:
+      - api-wrapper
+    restart: unless-stopped
+
+  api-wrapper:
+    build: ./42-api-wrapper
+    container_name: api_wrapper
+    environment:
+      - FLASK_ENV=${FLASK_ENV}
+      - 42_APP_UID=${42_APP_UID}
+      - 42_APP_SECRET=${42_APP_SECRET}
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
